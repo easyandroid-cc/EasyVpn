@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "826543875226",
+    "firebase_url": "https://easyvpn-de4bd.firebaseio.com",
+    "project_id": "easyvpn-de4bd",
+    "storage_bucket": "easyvpn-de4bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826543875226:android:5fbff06c12994744",
+        "android_client_info": {
+          "package_name": "cc.easyandroid.easyvpn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "826543875226-p4jpporl7fnrfmddip5dq3f550e3vg84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLBpTTwWzupsxgPBaSr2U-k76dDYnrGko"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

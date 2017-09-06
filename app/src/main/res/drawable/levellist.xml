@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@color/qBDABA9" android:minLevel="0" android:maxLevel="0"></item>
+    <item android:drawable="@color/qB1C5A3" android:minLevel="1" android:maxLevel="1"></item>
+    <item android:drawable="@color/qC3B19D" android:minLevel="2" android:maxLevel="2"></item>
+    <item android:drawable="@color/qC8BC98" android:minLevel="3" android:maxLevel="3"></item>
+    <item android:drawable="@color/q8FA3A7" android:minLevel="4" android:maxLevel="4"></item>
+    <item android:drawable="@color/qA3A6BG" android:minLevel="5" android:maxLevel="5"></item>
+    <item android:drawable="@color/qDBBFB2" android:minLevel="6" android:maxLevel="6"></item>
+    <item android:drawable="@color/q8FB2BF" android:minLevel="7" android:maxLevel="7"></item>
+    <item android:drawable="@color/qB6ADAD" android:minLevel="8" android:maxLevel="8"></item>
+</level-list>
