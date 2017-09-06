@@ -1,9 +1,16 @@
 package cc.easyandroid.easyvpn.ui;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ShareCompat;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
@@ -20,6 +27,8 @@ import cc.easyandroid.easyvpn.R;
 import cc.easyandroid.easyvpn.core.AppProxyManager;
 import cc.easyandroid.easyvpn.core.LocalVpnService;
 import cc.easyandroid.easyvpn.pojo.AppInfo;
+
+import static cc.easyandroid.easyvpn.R.id.share;
 
 
 public class EasyMainActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener, LocalVpnService.onStatusChangedListener {
@@ -192,6 +201,62 @@ public class EasyMainActivity extends BaseActivity implements CompoundButton.OnC
 
     @Override
     public void onLogReceived(String logString) {
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_easyactivity_actions, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.exit:
+                if (!LocalVpnService.IsRunning) {
+                    finish();
+                    return true;
+                }
+
+                new AlertDialog.Builder(this)
+                        .setTitle(cc.easyandroid.easyvpn.R.string.menu_item_exit)
+                        .setMessage(cc.easyandroid.easyvpn.R.string.exit_confirm_info)
+                        .setPositiveButton(cc.easyandroid.easyvpn.R.string.btn_ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                LocalVpnService.IsRunning = false;
+                                LocalVpnService.Instance.disconnectVPN();
+                                stopService(new Intent(EasyMainActivity.this, LocalVpnService.class));
+                                System.runFinalization();
+//                                System.exit(0);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton(cc.easyandroid.easyvpn.R.string.btn_cancel, null)
+                        .show();
+
+                return true;
+            case share:
+                share(this);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void share(Activity activity) {
+        try {
+            String appDir = activity.getPackageManager().getApplicationInfo(activity.getPackageName(), 0).sourceDir;
+            appDir = "file://" + appDir;
+            Uri uri = Uri.parse(appDir);
+            ShareCompat.IntentBuilder.from(activity)
+                    .setStream(uri)
+                    .setType("*/*")
+                    .setChooserTitle(activity.getString(R.string.app_name))
+                    .startChooser();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 }
