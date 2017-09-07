@@ -28,8 +28,6 @@ import cc.easyandroid.easyvpn.core.AppProxyManager;
 import cc.easyandroid.easyvpn.core.LocalVpnService;
 import cc.easyandroid.easyvpn.pojo.AppInfo;
 
-import static cc.easyandroid.easyvpn.R.id.share;
-
 
 public class EasyMainActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener, LocalVpnService.onStatusChangedListener {
     EasyProgressRelativeLayout content_main;
@@ -237,7 +235,7 @@ public class EasyMainActivity extends BaseActivity implements CompoundButton.OnC
                         .show();
 
                 return true;
-            case share:
+            case R.id.share:
                 share(this);
             default:
                 return super.onOptionsItemSelected(item);

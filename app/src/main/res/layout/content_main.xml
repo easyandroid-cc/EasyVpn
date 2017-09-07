@@ -17,4 +17,12 @@
         android:gravity="center"
         android:text="@null" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        android:text="香港项目部内部专用" />
+
 </cc.easyandroid.easyrecyclerview.core.progress.EasyProgressRelativeLayout>

@@ -19,7 +19,7 @@
             android:layout_height="?attr/actionBarSize"
             app:contentInsetStart="@dimen/activity_horizontal_margin"
             app:layout_collapseMode="pin"
-            app:logo="@mipmap/vpn_logo"
+            app:logo="@mipmap/logo"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </cc.easyandroid.easyvpn.ui.EasyAppBarLayout>
 

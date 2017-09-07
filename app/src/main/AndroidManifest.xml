@@ -8,8 +8,8 @@
     <application
         android:name=".EasyVpnApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/vpn_logo"
-        android:logo="@mipmap/vpn_logo"
+        android:icon="@mipmap/logo"
+        android:logo="@mipmap/logo"
         android:label="@string/app_name"
         android:persistent="true"
         android:theme="@style/AppTheme">
