@@ -18,8 +18,6 @@ import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
 
 import cc.easyandroid.easyrecyclerview.core.progress.EasyProgressRelativeLayout;
 import cc.easyandroid.easyvpn.EasyVpnApplication;
@@ -172,17 +170,17 @@ public class EasyMainActivity extends BaseActivity implements CompoundButton.OnC
             return;
         }
 
-        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-        if (scanResult != null) {
-            String ProxyUrl = scanResult.getContents();
-            if (isValidUrl(ProxyUrl)) {
-                setProxyUrl(ProxyUrl);
-//                textViewProxyUrl.setText(ProxyUrl);
-            } else {
-                Toast.makeText(EasyMainActivity.this, cc.easyandroid.easyvpn.R.string.err_invalid_url, Toast.LENGTH_SHORT).show();
-            }
-            return;
-        }
+//        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+//        if (scanResult != null) {
+//            String ProxyUrl = scanResult.getContents();
+//            if (isValidUrl(ProxyUrl)) {
+//                setProxyUrl(ProxyUrl);
+////                textViewProxyUrl.setText(ProxyUrl);
+//            } else {
+//                Toast.makeText(EasyMainActivity.this, cc.easyandroid.easyvpn.R.string.err_invalid_url, Toast.LENGTH_SHORT).show();
+//            }
+//            return;
+//        }
 
         super.onActivityResult(requestCode, resultCode, intent);
     }

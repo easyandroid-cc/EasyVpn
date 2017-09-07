@@ -11,13 +11,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 
-import cc.easyandroid.easyvpn.dns.DnsPacket;
-import cc.easyandroid.easyvpn.tcpip.CommonMethods;
-import cc.easyandroid.easyvpn.tcpip.IPHeader;
-import cc.easyandroid.easyvpn.tcpip.TCPHeader;
-import cc.easyandroid.easyvpn.tcpip.UDPHeader;
-import cc.easyandroid.easyvpn.ui.MainActivity;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -27,6 +20,13 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+
+import cc.easyandroid.easyvpn.dns.DnsPacket;
+import cc.easyandroid.easyvpn.tcpip.CommonMethods;
+import cc.easyandroid.easyvpn.tcpip.IPHeader;
+import cc.easyandroid.easyvpn.tcpip.TCPHeader;
+import cc.easyandroid.easyvpn.tcpip.UDPHeader;
+import cc.easyandroid.easyvpn.ui.EasyMainActivity;
 
 public class LocalVpnService extends VpnService implements Runnable {
 
@@ -406,7 +406,7 @@ public class LocalVpnService extends VpnService implements Runnable {
             writeLog("No Pre-App proxy, due to low Android version.");
         }
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, EasyMainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
         builder.setConfigureIntent(pendingIntent);
 
