@@ -58,9 +58,12 @@ public class EasyMainActivity extends BaseActivity implements CompoundButton.OnC
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                content_main.showErrorView();
+//                content_main.showErrorView();
             }
         });
+
+        setProxyUrl("ss://aes-256-cfb:cgp1234567@23.89.159.94:2330");
+        content_main.showContentView();
         //Pre-App Proxy
         if (AppProxyManager.isLollipopOrAbove) {
             new AppProxyManager(this);
@@ -68,6 +71,7 @@ public class EasyMainActivity extends BaseActivity implements CompoundButton.OnC
 //            ((ViewGroup) findViewById(cc.easyandroid.easyvpn.R.id.AppSelectLayout).getParent()).removeView(findViewById(cc.easyandroid.easyvpn.R.id.AppSelectLayout));
 //            ((ViewGroup) findViewById(cc.easyandroid.easyvpn.R.id.textViewAppSelectLine).getParent()).removeView(findViewById(cc.easyandroid.easyvpn.R.id.textViewAppSelectLine));
         }
+
         LocalVpnService.addOnStatusChangedListener(this);
     }
 
